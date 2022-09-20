@@ -1,0 +1,21 @@
+{
+  "name": "my-header",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "open-html": "open-cli index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "open-cli": "^7.0.1"
+  },
+  "dependencies": {
+    "node-sass": "^7.0.3",
+    "sass": "^1.54.9"
+  }
+}
