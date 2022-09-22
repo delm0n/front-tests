@@ -1,5 +1,180 @@
 body {
-  background: red; }
+  background: white; }
 
-div .wrapper {
-  color: beige; }
+.background__block, header .logo_list .listbar .listbox__content .searchinput, header .searchblock .searchinput, header .likeblock .like {
+  box-sizing: border-box;
+  padding: 8px;
+  border-radius: 100px;
+  border: 0; }
+  .background__block:focus, header .logo_list .listbar .listbox__content .searchinput:focus, header .searchblock .searchinput:focus, header .likeblock .like:focus {
+    outline: none;
+    border: 2px #ABC8EA solid; }
+
+header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 8px 16px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  header .burger {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden; }
+    @media screen and (min-width: 1024px) {
+      header .burger {
+        display: none; } }
+    header .burger span {
+      width: 20px;
+      height: 2px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #222222;
+      transition: all 0.5s; }
+    header .burger span:nth-of-type(2) {
+      top: calc(50% - 5px); }
+    header .burger span:nth-of-type(3) {
+      top: calc(50% + 5px); }
+    header .burger__active span:nth-of-type(1) {
+      display: none; }
+    header .burger__active span:nth-of-type(2) {
+      transform: rotate(135deg);
+      top: 50%;
+      left: 25%; }
+    header .burger__active span:nth-of-type(3) {
+      transform: rotate(45deg);
+      left: 25%;
+      top: 50%; }
+  header .logo_list {
+    display: flex;
+    align-items: center; }
+    @media screen and (max-width: 1024px) {
+      header .logo_list .listbar {
+        display: none; } }
+    header .logo_list .listbar .listbox__open {
+      display: flex;
+      align-items: center;
+      cursor: pointer; }
+      header .logo_list .listbar .listbox__open:hover .circle {
+        background: #F1F1F1; }
+    header .logo_list .listbar .circle {
+      border-radius: 100%;
+      border: 1px gray solid;
+      width: 32px;
+      height: 32px;
+      transition: all 0.1s;
+      position: relative;
+      box-sizing: border-box;
+      margin-right: 8px; }
+    header .logo_list .listbar .city_icon {
+      position: absolute;
+      left: 20%;
+      top: 25%; }
+    header .logo_list .listbar .listbox {
+      display: none; }
+      header .logo_list .listbar .listbox__overlay {
+        position: absolute;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0; }
+      header .logo_list .listbar .listbox__content {
+        position: absolute;
+        z-index: 4;
+        background-color: #FBFBFB;
+        box-shadow: 0px 7px 38px rgba(44, 62, 106, 0.25);
+        border-radius: 10px;
+        max-height: 416px;
+        width: 384px;
+        transition: all 1s;
+        margin-top: 10px; }
+        header .logo_list .listbar .listbox__content .searchinput {
+          background-color: #FBFBFB;
+          width: 352px;
+          height: 48px;
+          margin: 16px;
+          padding-left: 18px; }
+        header .logo_list .listbar .listbox__content .cityblock {
+          height: 223px;
+          overflow-y: scroll; }
+          header .logo_list .listbar .listbox__content .cityblock div {
+            padding: 9px 23px;
+            transition: all 0.4s;
+            background: #fff; }
+            header .logo_list .listbar .listbox__content .cityblock div:hover {
+              background: #F1F1F1; }
+        header .logo_list .listbar .listbox__content .save {
+          text-align: center;
+          padding: 16px 0px;
+          color: #A7A7A7;
+          margin-top: 15px;
+          border-top: 1px #D8D8D8 solid;
+          transition: all 0.4s;
+          border-radius: 0px 0px 10px 10px; }
+          header .logo_list .listbar .listbox__content .save:hover {
+            background: #0656B4;
+            color: #fff;
+            border-top: 1px #0656B4 solid; }
+      header .logo_list .listbar .listbox__active {
+        display: block; }
+  header .searchblock {
+    position: relative; }
+    header .searchblock .searchinput {
+      width: 592px;
+      height: 48px;
+      background: #F1F1F1;
+      text-align: center; }
+    header .searchblock .searchicon {
+      position: absolute;
+      top: 8px;
+      left: 8px; }
+    @media screen and (max-width: 1024px) {
+      header .searchblock {
+        display: none; } }
+  header .likeblock {
+    display: flex;
+    align-items: center; }
+    header .likeblock .like {
+      margin-right: 15px;
+      transition: all 0.5s;
+      cursor: pointer; }
+      header .likeblock .like:hover {
+        background: #F1F1F1; }
+    @media screen and (max-width: 1024px) {
+      header .likeblock .profile {
+        display: none; } }
+
+.mobile-panel .overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: all 1s;
+  cursor: pointer; }
+  .mobile-panel .overlay__active {
+    display: block;
+    opacity: 1; }
+
+.mobile-panel .content {
+  transition: all 1s;
+  position: fixed;
+  top: 0;
+  left: -320px;
+  height: 100%;
+  width: 320px;
+  background-color: gray;
+  transition: all 0.5s; }
+  .mobile-panel .content__active {
+    left: 0px; }
