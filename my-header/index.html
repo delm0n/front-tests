@@ -74,8 +74,8 @@
                         </svg>
                     </div>
 
-                    <div>
-                        Москва
+                    <div class="textblock">
+                        Любой регион
                     </div>
                 </div>
                 
@@ -83,13 +83,27 @@
                 <div class="listbox">
                     <div class="listbox__overlay"></div>
                     <div class="listbox__content">
-                        <input class="searchinput" placeholder="Регион, город, населённый пункт">
+                        <div class="inputAndButton">
+
+                        
+                        <input class="searchinput" placeholder="Регион, город, населённый пункт" oninput="hint(event)">
                         </input>
+
+                        <svg class="closeicon" onclick="cleanInput()" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#A7A7A7"/>
+                            </svg>
+                    </div>
+
+                        <div class="choosecitylist">
+                            <div style="padding-right: 16px ;">Любой регион</div>
+                        </div>
+
+                        <div class="loader">loading</div>
 
                         <div class="cityblock">
                         </div>
                         
-                        <div class="save">Сохранить</div>
+                        <div class="save" onclick="clickSave()">Сохранить</div>
                     </div>
                 </div>
             </div>
@@ -117,8 +131,6 @@
 
         <div class="likeblock">
             <div class="like">&#10084; 1</div>
-
-
             <svg class="profile" width="120" height="32" viewBox="0 0 120 32" fill="none"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <path
@@ -143,7 +155,10 @@
         <div class="overlay"></div>
         <div class="content"></div>
     </div>
+
+    
     <script src="script.js"></script>
+    
 </body>
 
 </html>

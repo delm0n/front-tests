@@ -1,12 +1,12 @@
 body {
   background: white; }
 
-.background__block, header .logo_list .listbar .listbox__content .searchinput, header .searchblock .searchinput, header .likeblock .like {
+.background__block, header .logo_list .listbar .listbox__content .inputAndButton .searchinput, header .searchblock .searchinput, header .likeblock .like {
   box-sizing: border-box;
   padding: 8px;
   border-radius: 100px;
   border: 0; }
-  .background__block:focus, header .logo_list .listbar .listbox__content .searchinput:focus, header .searchblock .searchinput:focus, header .likeblock .like:focus {
+  .background__block:focus, header .logo_list .listbar .listbox__content .inputAndButton .searchinput:focus, header .searchblock .searchinput:focus, header .likeblock .like:focus {
     outline: none;
     border: 2px #ABC8EA solid; }
 
@@ -61,6 +61,11 @@ header {
       cursor: pointer; }
       header .logo_list .listbar .listbox__open:hover .circle {
         background: #F1F1F1; }
+    header .logo_list .listbar .textblock {
+      width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
     header .logo_list .listbar .circle {
       border-radius: 100%;
       border: 1px gray solid;
@@ -91,37 +96,85 @@ header {
         background-color: #FBFBFB;
         box-shadow: 0px 7px 38px rgba(44, 62, 106, 0.25);
         border-radius: 10px;
-        max-height: 416px;
         width: 384px;
         transition: all 1s;
         margin-top: 10px; }
-        header .logo_list .listbar .listbox__content .searchinput {
-          background-color: #FBFBFB;
-          width: 352px;
-          height: 48px;
-          margin: 16px;
-          padding-left: 18px; }
+        header .logo_list .listbar .listbox__content .inputAndButton {
+          position: relative; }
+          header .logo_list .listbar .listbox__content .inputAndButton .searchinput {
+            background-color: #FBFBFB;
+            width: 352px;
+            height: 48px;
+            margin: 16px;
+            padding-left: 18px; }
+          header .logo_list .listbar .listbox__content .inputAndButton .closeicon {
+            position: absolute;
+            top: 26px;
+            right: 24px;
+            padding: 7px;
+            display: none;
+            cursor: pointer; }
+            header .logo_list .listbar .listbox__content .inputAndButton .closeicon__active {
+              display: block; }
+        header .logo_list .listbar .listbox__content .choosecitylist {
+          padding: 0px 16px;
+          padding-bottom: 16px;
+          border-bottom: 1px #D8D8D8 solid; }
+          header .logo_list .listbar .listbox__content .choosecitylist div {
+            background: #0656B4;
+            color: #fff;
+            border-radius: 100px;
+            display: inline-block;
+            padding: 9px 16px;
+            padding-right: 36px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            position: relative; }
+            header .logo_list .listbar .listbox__content .choosecitylist div .close {
+              background: none;
+              cursor: pointer;
+              position: absolute;
+              right: -6px; }
+              header .logo_list .listbar .listbox__content .choosecitylist div .close:before, header .logo_list .listbar .listbox__content .choosecitylist div .close:after {
+                content: "";
+                position: absolute;
+                width: 16px;
+                height: 2px;
+                background: white; }
+              header .logo_list .listbar .listbox__content .choosecitylist div .close:before {
+                transform: rotate(45deg); }
+              header .logo_list .listbar .listbox__content .choosecitylist div .close:after {
+                transform: rotate(-45deg); }
         header .logo_list .listbar .listbox__content .cityblock {
-          height: 223px;
-          overflow-y: scroll; }
+          max-height: 223px;
+          height: auto;
+          overflow-y: scroll;
+          transition: all 1s; }
           header .logo_list .listbar .listbox__content .cityblock div {
             padding: 9px 23px;
             transition: all 0.4s;
-            background: #fff; }
+            cursor: pointer; }
             header .logo_list .listbar .listbox__content .cityblock div:hover {
               background: #F1F1F1; }
+          header .logo_list .listbar .listbox__content .cityblock .__active {
+            background: #F1F1F1; }
+          header .logo_list .listbar .listbox__content .cityblock .bold {
+            font-weight: bold; }
         header .logo_list .listbar .listbox__content .save {
           text-align: center;
           padding: 16px 0px;
           color: #A7A7A7;
-          margin-top: 15px;
           border-top: 1px #D8D8D8 solid;
           transition: all 0.4s;
-          border-radius: 0px 0px 10px 10px; }
-          header .logo_list .listbar .listbox__content .save:hover {
+          border-radius: 0px 0px 10px 10px;
+          cursor: default; }
+          header .logo_list .listbar .listbox__content .save__active {
             background: #0656B4;
             color: #fff;
-            border-top: 1px #0656B4 solid; }
+            border-top: 1px #0656B4 solid;
+            cursor: pointer; }
+            header .logo_list .listbar .listbox__content .save__active:hover {
+              opacity: 0.9; }
       header .logo_list .listbar .listbox__active {
         display: block; }
   header .searchblock {
@@ -178,3 +231,66 @@ header {
   transition: all 0.5s; }
   .mobile-panel .content__active {
     left: 0px; }
+
+.loader {
+  overflow: hidden;
+  font-size: 5px;
+  margin: 10px auto;
+  text-indent: -9999em;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ABC8EA;
+  background: -moz-linear-gradient(left, #ABC8EA 10%, rgba(101, 171, 248, 0) 42%);
+  background: -webkit-linear-gradient(left, #ABC8EA 10%, rgba(101, 171, 248, 0) 42%);
+  background: -o-linear-gradient(left, #ABC8EA 10%, rgba(101, 171, 248, 0) 42%);
+  background: -ms-linear-gradient(left, #ABC8EA 10%, rgba(101, 171, 248, 0) 42%);
+  background: linear-gradient(to right, #ABC8EA 10%, rgba(101, 171, 248, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0); }
+
+.loader__hide {
+  display: none; }
+
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #ABC8EA;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: ''; }
+
+.loader:after {
+  background: white;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
+
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
