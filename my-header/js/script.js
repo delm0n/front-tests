@@ -210,3 +210,55 @@ function cleanInput() {
             cityblock.children[i].innerHTML = cityblock.children[i].textContent ;
         }
 }
+
+
+/* карусель */
+
+const left = document.querySelector('.left');
+const right = document.querySelector('.right');
+
+let countOfClick = 0;
+let pixels = 100; //количество пикселей прокрутки
+let countGlobal =  Math.ceil((document.querySelector('.navblock__panel').scrollWidth - document.body.scrollWidth) / pixels);
+if (countGlobal< 0) {
+    countGlobal = 1;
+}
+
+right.addEventListener('click', function() {
+
+    if (countOfClick != countGlobal) {
+        countOfClick = countOfClick+1;
+        document.querySelector('.navrow').style = "transform: translateX(-"+ pixels*countOfClick +"px)";       
+    }
+
+    checkCountOfClick()
+})
+
+left.addEventListener('click', function() {
+
+    if (countOfClick > 0) {
+        countOfClick = countOfClick-1;
+        document.querySelector('.navrow').style = "transform: translateX(-"+ pixels*(countOfClick-1) +"px)";   
+    }
+
+    checkCountOfClick();
+    
+})
+
+function checkCountOfClick() {
+
+    if (countOfClick != countGlobal) {
+        right.classList.remove('arrow__hide')
+    }
+    else {
+        right.classList.add('arrow__hide')
+    }
+
+    if(countOfClick > 0) {
+        left.classList.remove('arrow__hide');
+    }
+    else {
+        left.classList.add('arrow__hide');
+    }
+
+}

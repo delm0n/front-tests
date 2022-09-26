@@ -1,8 +1,21 @@
 body {
     background: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
 }
 
 $blue-color: #ABC8EA;
+
+.arrow_class {
+    border-radius: 100%;
+    padding: 5px;
+    position: absolute;
+        z-index: 3;
+        background-color: #fff;
+        opacity: 0.7;
+        @extend .arrow_class; 
+        
+}
 
 .background__block {
     box-sizing: border-box;
@@ -154,32 +167,32 @@ header {
                     // flex-direction: column;
                     // justify-content: center;
 
-                    .inputAndButton{
+                    .inputAndButton {
                         position: relative;
-                    
 
-                    .searchinput {
-                        @extend .background__block;
-                        background-color: #FBFBFB;
-                        width: 352px;
-                        height: 48px;
-                        margin: 16px;
-                        padding-left: 18px;
-                    }
 
-                    .closeicon {
-                        position: absolute;
-                        top: 26px;
-                        right: 24px;
-                        padding: 7px;
-                        display: none;
-                        cursor: pointer;
+                        .searchinput {
+                            @extend .background__block;
+                            background-color: #FBFBFB;
+                            width: 352px;
+                            height: 48px;
+                            margin: 16px;
+                            padding-left: 18px;
+                        }
 
-                        &__active {
-                            display: block;  
+                        .closeicon {
+                            position: absolute;
+                            top: 26px;
+                            right: 24px;
+                            padding: 7px;
+                            display: none;
+                            cursor: pointer;
+
+                            &__active {
+                                display: block;
+                            }
                         }
                     }
-                }
 
                     .choosecitylist {
                         padding: 0px 16px;
@@ -192,7 +205,7 @@ header {
                             border-radius: 100px;
                             display: inline-block;
                             padding: 9px 16px;
-                            padding-right: 36px ;
+                            padding-right: 36px;
                             margin-bottom: 5px;
                             margin-left: 5px;
                             position: relative;
@@ -202,25 +215,25 @@ header {
                                 cursor: pointer;
                                 position: absolute;
                                 right: -6px;
-                            
 
-                            &:before,
-                            &:after {
-                                content: "";
-                                position: absolute;
-                                width: 16px;
-                                height: 2px;
-                                background: white;
-                            }
 
-                            &:before {
-                                transform: rotate(45deg);
-                            }
+                                &:before,
+                                &:after {
+                                    content: "";
+                                    position: absolute;
+                                    width: 16px;
+                                    height: 2px;
+                                    background: white;
+                                }
 
-                            &:after {
-                                transform: rotate(-45deg);
+                                &:before {
+                                    transform: rotate(45deg);
+                                }
+
+                                &:after {
+                                    transform: rotate(-45deg);
+                                }
                             }
-                        }
                         }
                     }
 
@@ -326,9 +339,10 @@ header {
 
         .like {
             @extend .background__block;
-            margin-right: 15px;
+            margin-right: 10px;
             transition: all 0.5s;
             cursor: pointer;
+            white-space: nowrap;
 
             &:hover {
                 background: #F1F1F1;
@@ -341,7 +355,70 @@ header {
             }
         }
     }
+}
 
+nav {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: relative;
+
+    .navblock__panel{
+
+        overflow: hidden;
+
+
+        .navrow{
+            display: flex;
+            gap: 20px;
+            flex-wrap: nowrap;
+            transition: all 1s;
+            margin: 0px 32px;
+
+    
+    
+
+        .navblock {
+            @extend .background__block;
+
+            padding: 3px 10px;
+            transition: all 0.5s;
+            cursor: pointer;
+            white-space: nowrap;
+            text-align: center;
+
+            &:hover {
+                background: #F1F1F1;
+            }
+        }
+    }
+    }   
+    
+    .arrow {
+        padding: 10px;
+
+        &__hide {
+           
+            opacity: 0;
+        }
+    }
+
+    .left { 
+        @extend .arrow_class;
+
+        left: 0;
+        z-index: 10; 
+        
+    }
+
+    .righ { 
+        @extend .arrow_class; 
+ 
+    }
+
+   
 }
 
 .mobile-panel {
@@ -407,35 +484,35 @@ header {
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
-}
 
-.loader__hide {
+    &__hide {
     display: none;
-}
+    }
 
-.loader:before {
-    width: 50%;
-    height: 50%;
-    background: $blue-color;
-    border-radius: 100% 0 0 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-}
+    &:before {
+        width: 50%;
+        height: 50%;
+        background: $blue-color;
+        border-radius: 100% 0 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+    }
 
-.loader:after {
-    background: white;
-    width: 75%;
-    height: 75%;
-    border-radius: 50%;
-    content: '';
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    &:after {
+        background: white;
+        width: 75%;
+        height: 75%;
+        border-radius: 50%;
+        content: '';
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
 }
 
 @-webkit-keyframes load3 {

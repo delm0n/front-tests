@@ -6,27 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <style>
     ::-webkit-scrollbar {
-    width: 8px;
-    background-color: #f9f9fd;
+        width: 8px;
+        background-color: #f9f9fd;
     }
 
     ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: rgba(57, 57, 57, 0.1);
-    z-index: 1;
-    cursor: pointer;
+        border-radius: 10px;
+        background-color: rgba(57, 57, 57, 0.1);
+        z-index: 1;
+        cursor: pointer;
 
-    /* transition: opacity 0.4s ease-out 0s */
+        /* transition: opacity 0.4s ease-out 0s */
     }
 
     ::-webkit-scrollbar-track {
-    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); */
-    border-radius: 10px;
-    background-color: #f9f9fd;
+        /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); */
+        border-radius: 10px;
+        background-color: #f9f9fd;
     }
 </style>
 
@@ -67,7 +70,8 @@
             <div class="listbar">
                 <div class="listbox__open">
                     <div class="circle">
-                        <svg class="city_icon" width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="city_icon" width="16" height="19" viewBox="0 0 16 19" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M0.554043 10.5638L14.9471 0.594936C15.4542 0.243753 16.0659 0.718264 15.8519 1.29672L9.77637 17.717C9.57036 18.2738 8.81349 18.323 8.61362 17.7927L6.68389 12.6718C6.60699 12.4677 6.42672 12.3279 6.20994 12.3042L0.770016 11.7088C0.206593 11.6471 0.0660077 10.9018 0.554043 10.5638Z"
                                 fill="#A7A7A7" />
@@ -78,21 +82,25 @@
                         Любой регион
                     </div>
                 </div>
-                
+
 
                 <div class="listbox">
                     <div class="listbox__overlay"></div>
                     <div class="listbox__content">
                         <div class="inputAndButton">
 
-                        
-                        <input class="searchinput" placeholder="Регион, город, населённый пункт" oninput="hint(event)">
-                        </input>
 
-                        <svg class="closeicon" onclick="cleanInput()" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#A7A7A7"/>
+                            <input class="searchinput" placeholder="Регион, город, населённый пункт"
+                                oninput="hint(event)">
+                            </input>
+
+                            <svg class="closeicon" onclick="cleanInput()" width="14" height="14" viewBox="0 0 14 14"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
+                                    fill="#A7A7A7" />
                             </svg>
-                    </div>
+                        </div>
 
                         <div class="choosecitylist">
                             <div style="padding-right: 16px ;">Любой регион</div>
@@ -102,13 +110,13 @@
 
                         <div class="cityblock">
                         </div>
-                        
-                        <div class="save" onclick="clickSave()">Сохранить</div>
+
+                        <div class="save" onclick="clickSave()">СОХРАНИТЬ</div>
                     </div>
                 </div>
             </div>
 
-            
+
         </div>
 
 
@@ -147,18 +155,43 @@
             </svg>
 
         </div>
-
-
     </header>
+
+    <nav>
+        
+        <div class="navblock__panel">
+            <div class="navrow">
+                <div class="navblock">Вузы</div>
+                <div class="navblock">Колледжи</div>
+                <div class="navblock">Техникумы</div>
+                <div class="navblock">Училища</div>
+                <div class="navblock">Специальности</div>
+                <div class="navblock">Профессии</div>
+                <div class="navblock">Отзывы</div>
+                <div class="navblock">Учебным заведениям</div>
+                <div class="navblock">Тест на профориентацию</div>
+            </div>
+        </div>
+        <div class="arrow left arrow__hide">
+            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 13L1 7L7 1" stroke="#222222" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="arrow right">
+            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L1 13" stroke="#222222" stroke-linecap="round"/>
+            </svg>
+        </div>
+    </nav>
 
     <div class="mobile-panel">
         <div class="overlay"></div>
         <div class="content"></div>
     </div>
 
-    
-    <script src="script.js"></script>
-    
+
+    <script src="js/script.js"></script>
+
 </body>
 
 </html>
